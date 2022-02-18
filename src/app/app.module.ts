@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddPlanetComponent } from './components/add-planet/add-planet.component';
 import { ListPlanetComponent } from './components/list-planet/list-planet.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,10 @@ import { ListPlanetComponent } from './components/list-planet/list-planet.compon
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
