@@ -6,10 +6,9 @@
 
           <span class="title">Planet List</span>
           <button class="btn btn-success float-end mt-2 me-2" routerLink="/add-planet">Nuevo</button>
-          <table class="table table-striped mt-3">
+          <table *ngIf="listPlanets.length > 0" class="table table-striped mt-3">
             <thead>
               <tr>
-                <th scope="col">#</th>
                 <th scope="col">Planet</th>
                 <th scope="col">Cathegory</th>
                 <th scope="col">Radius</th>
@@ -17,35 +16,19 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Venus</td>
-                <td>Planet</td>
-                <td>345</td>
+              <tr *ngFor="let planet of listPlanets">
+                <td>{{ planet.name }}</td>
+                <td>{{ planet.cathegory }}</td>
+                <td>{{ planet.radius }}</td>
                 <td>
-                  <i class="fa-solid fa-pen-to-square text-primary"></i>
-                  <i class="fa-solid fa-trash text-danger"></i></td>
+                  <i [routerLink]="['/edit-planet/', planet._id]" class="fa-solid fa-pen-to-square text-primary"></i>
+                  <i (click)="deletePlanet(planet._id)" class="fa-solid fa-trash text-danger"></i>
+                </td>
               </tr>
-              <tr>
-                <td>2</td>
-                <td>IO</td>
-                <td>Moon</td>
-                <td>245</td>
-                <td>
-                  <i class="fa-solid fa-pen-to-square text-primary"></i>
-                  <i class="fa-solid fa-trash text-danger"></i></td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>The Earth</td>
-                <td>Planet</td>
-                <td>5634</td>
-                <td>
-                  <i class="fa-solid fa-pen-to-square text-primary"></i>
-                  <i class="fa-solid fa-trash text-danger"></i></td>
-              </tr>
+
             </tbody>
           </table>
+          <h5 style="text-align: start; margin-top: 10px" *ngIf="listPlanets.length == 0">No Planet data</h5>
         </div>
       </div>
     </div>

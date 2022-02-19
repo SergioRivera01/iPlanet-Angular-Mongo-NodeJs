@@ -8,6 +8,7 @@ import { AddPlanetComponent } from './components/add-planet/add-planet.component
 import { ListPlanetComponent } from './components/list-planet/list-planet.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    HttpClientModule
     
   ],
   providers: [],
